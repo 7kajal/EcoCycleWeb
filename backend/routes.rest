@@ -1,0 +1,48 @@
+POST  http://localhost:5000/recycleItem 
+Content-Type: application/json
+
+{
+    "name": "Bottle",
+    "category": "Plastic",
+    "quantity": 10,
+    "location": "Mumbai"
+}
+
+###
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+    "name": "Kajal",
+    "email": "kajalyadav@gmail.com",
+    "password": "kajal"
+}
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json 
+
+{
+    "email": "kajal@gmail.com",
+    "password": "12345678"
+}  
+
+
+### 
+GET http://localhost:5000/getcurrentuser
+
+### 
+POST http://localhost:5000/chat
+Content-Type: application/json
+Accept: text/plain
+
+{
+    "userPrompt": "If i want to recycle 12 kg of paper how much it will cost."
+}
+
+
+###
+GET http://localhost:5000/test
+
+
+##

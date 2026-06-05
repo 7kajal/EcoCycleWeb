@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/logo.jpg">
+
+  <title>Admin Dashboard - Recycling Website</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body class="bg-gray-100">
+  <div id="toast-container" class="fixed top-5 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-50">
+  </div>
+  <div class="flex min-h-screen h-full">
+    <div class="w-64 bg-green-700 text-white flex flex-col">
+      <div class="px-4 py-6">
+        <h1 class="text-2xl font-bold">EcoCycle Admin</h1>
+      </div>
+      <nav class="flex-1 px-2 space-y-2">
+        <a id="home" href="/src/admin/dashboard.html" class="block py-2.5 px-4 rounded hover:bg-green-600">Dashboard</a>
+        <a id="status" href="/src/admin/status.html" class="block py-2.5 px-4 rounded hover:bg-green-600">Status</a>
+        <a id="users" href="/src/admin/dashboard.html" class="block py-2.5 px-4 rounded hover:bg-green-600">Users</a>
+        <a id="logout" class="block cursor-pointer py-2.5 px-4 rounded hover:bg-green-600">Logout</a>
+      </nav>
+    </div>
+    <main class="flex-1 p-6">
+      <section id="stats" class="flex space-x-4"></section>
+      <section id="usersList"></section>
+    </main>
+  </div>
+
+  <script type="module" src="./status.js"></script>
+</body>
+
+</html>

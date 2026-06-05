@@ -1,0 +1,11 @@
+use recycle
+db.createCollection("userCollection")
+
+db.createCollection("recycleItem")
+
+db.recycleItem.find()
+db.userCollection.find({name: "admin"})
+db.userCollection.updateOne({name: "admin"}, {$set: {role: "admin"}})
+recycle> db.recycleItem.updateOne({_id: ObjectId('67c17c19f06973824c00066c')}, {$set: {price: 132}})
+db.recycleItem.find({price: {$type: "string"}})
+db.recycleItem.updateMany({price: {$type: "string"}}, [{$set: {price: {$toDouble: "$price"} } }])

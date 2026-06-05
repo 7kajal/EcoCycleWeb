@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/x-icon" href="/logo.jpg">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-green-100">
+    <section class="m-10">
+        <h1 class="text-5xl "> About Us</h1><br>
+        <div class="text-xl">
+            At <b>EcoCycle</b>, we believe recycling should be simple, rewarding, and impactful. Our mission is to
+            revolutionize
+            waste management by bridging the gap between individuals, businesses, and recycling companies through a
+            smart
+            and user-friendly platform.
+            <br><br>
+
+            <div class="text-2xl font-bold"> Why Choose EcoCycle?</div>
+            ✅ Easy Sorting – Quickly categorize your recyclables<br>
+            ✅ Hassle-Free Pickups – Schedule collections at your convenience<br>
+            ✅ Real-Time Tracking – Monitor your contributions and impact<br>
+            ✅ Earn Rewards – Get rewarded for sustainable actions<br>
+            ✅ Community Impact – Join a movement for a greener planet<br><br>
+
+            By integrating technology with environmental responsibility, we empower communities to reduce waste, adopt
+            eco-friendly habits, and create a cleaner, greener future.
+        </div>
+        <section class="py-16 ">
+            <div class="text-5xl text-green-700 text-center mb-5 font-extrabold ">FAQS</div>
+            <div class="container mx-auto flex gap-8">
+                <div
+                    class="w-[900px] mx-auto bg-white shadow-lg rounded-lg text-center p-6  transition-all duration-300 hover:scale-105 hover:bg-green-200">
+
+                    <h3 class="text-xl font-bold text-green-700">How does EcoCycle work?</h3>
+                    <p class="text-gray-600 mt-2">
+                        Simply sign up, categorize your recyclables, schedule a pickup, and track your contributions—all
+                        while earning rewards!
+                    </p>
+                </div>
+
+
+                <div
+                    class="w-[900px] mx-auto bg-white shadow-lg rounded-lg text-center p-6  transition-all duration-300 hover:scale-105 hover:bg-green-200">
+
+                    <h3 class="text-xl font-bold text-green-700"> Is EcoCycle free to use?</h3>
+                    <p class="text-gray-600 mt-2">
+                        Yes! Our platform is free to use for individuals. Some services may have premium options for
+                        businesses.
+                    </p>
+                </div>
+            </div>
+            <div class="container mx-auto flex gap-8 mt-10">
+                <div
+                    class="w-[900px] mx-auto bg-white shadow-lg rounded-lg text-center p-6  transition-all duration-300 hover:scale-105 hover:bg-green-200">
+
+                    <h3 class="text-xl font-bold text-green-700"> What materials can I recycle?</h3>
+                    <p class="text-gray-600 mt-2">
+                        We accept a wide range of recyclables, including paper, plastics, metals, glass, and e-waste.
+                    </p>
+                </div>
+
+                <div
+                    class="w-[900px] mx-auto bg-white shadow-lg rounded-lg text-center p-6  transition-all duration-300 hover:scale-105 hover:bg-green-200">
+
+                    <h3 class="text-xl font-bold text-green-700">How do I earn rewards?</h3>
+                    <p class="text-gray-600 mt-2">
+                        You earn points based on the amount and type of recyclables you contribute. Points can be
+                        redeemed for discounts, coupons, or donations to environmental causes.
+                    </p>
+                </div>
+            </div>
+            <div
+                class="w-[900px] ml-52 h-40 mt-8 pt-10 bg-white shadow-lg rounded-lg text-center  transition-all duration-300 hover:scale-105 hover:bg-green-200">
+
+                <h3 class="text-xl font-bold text-green-700">Where is EcoCycle available?</h3>
+                <p class="text-gray-600 mt-2">
+                    We currently operate in Mumbai. Stay tuned as we expand to more locations!
+                </p>
+            </div>
+
+        </section>
+              <!-- Chatbot start -->
+  <div id="chat-window" class="fixed bottom-20 right-5 w-80 bg-green-500 p-4  shadow-lg rounded-md hidden">
+    <div class="p-2 bg-green-500 text-white font-bold">Assistant</div>
+    <div id="chat-content" class="p-2 h-48 overflow-y-auto text-sm"></div>
+    <div class="flex bg-white rounded-md">
+      <textarea rows="1" id="chat-input" class="w-full border-t p-2 text-sm rounded-s-md" placeholder="Ask..."
+        autofocus></textarea>
+
+      <button id="chatInput" class="px-2 py-1 text-sm text-black">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="lucide lucide-send-horizontal">
+          <path
+            d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
+          <path d="M6 12h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <button id="chatbot" class="fixed bottom-5 right-5 p-3 bg-green-500 text-white rounded-full shadow-lg">💬</button>
+  <script src="../utils/chatbot.js" type="module"></script>
+
+  <!-- Chatbot end -->
+
+
+
+        <script type="module" src="./navbar.js"></script>
+        <script type="module" src="./footer.js"></script>
+
+</body>
+
+</html>
