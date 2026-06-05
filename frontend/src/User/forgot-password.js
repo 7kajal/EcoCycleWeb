@@ -17,6 +17,13 @@ async function getDetails(email) {
   });
 
   // console.log(response)
+  let result = null;
+  try {
+    result = await response.json();
+  } catch (err) {
+    // Ignore JSON parse error if response body is empty or not JSON
+  }
+
   if (response.ok) {
     submitBtn.disabled = false;
     submitBtn.textContent = "Reset link sent";
@@ -32,8 +39,6 @@ async function getDetails(email) {
     await toast("Something went wrong!", "error");
     submitBtn.textContent = "Try again";
   }
-  // const result = await response.text(); // Extract response text
-  // const result = await response.json();
 
   return result;
 }

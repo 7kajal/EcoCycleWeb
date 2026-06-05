@@ -1,15 +1,10 @@
 import { database } from "../server.js";
+import { parseCookies } from "../utils/cookie.js";
 
 export async function getAllItems(req, res) {
-  const email = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("email="))
-    .split("=")[1];
-
-  const role = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("role="))
-    .split("=")[1];
+  const cookies = parseCookies(req);
+  const email = cookies.email;
+  const role = cookies.role;
   // console.log(email);
 
   if (!email) {

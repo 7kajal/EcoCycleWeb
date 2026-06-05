@@ -1,4 +1,5 @@
 import { database } from "../server.js";
+import { parseCookies } from "../utils/cookie.js";
 
 export async function recycleItem(req, res) {
   if (req.method !== "POST") {
@@ -8,10 +9,8 @@ export async function recycleItem(req, res) {
 
   // console.log(req.headers);
 
-  const email = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("email="))
-    .split("=")[1];
+  const cookies = parseCookies(req);
+  const email = cookies.email;
 
   if (!email) {
     res.statusCode = 401; // unauthorized

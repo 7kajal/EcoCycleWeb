@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import { database } from "../server.js";
 import { sendEmail } from "../utils/email.js";
 import { calculatePrice } from "../utils/calculatePrice.js";
+import { parseCookies } from "../utils/cookie.js";
 
 export async function getReqLists(req, res) {
   // console.log(req.headers);
@@ -10,17 +11,9 @@ export async function getReqLists(req, res) {
   // const email = req.headers.cookie.split(";")[2].split("=")[1];
   // const role = req.headers.cookie.split(";")[1].split("=")[1];
 
-  const email = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("email="))
-    .split("=")[1];
-  // console.log(email);  ye samjha
-
-  const role = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("role="))
-    .split("=")[1];
-  // console.log(email);
+  const cookies = parseCookies(req);
+  const email = cookies.email;
+  const role = cookies.role;
 
   if (email === "''" || !email) {
     res.status = 401;
@@ -42,10 +35,8 @@ export async function getReqLists(req, res) {
 }
 
 export async function updateReqList(req, res) {
-  const email = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("email="))
-    .split("=")[1];
+  const cookies = parseCookies(req);
+  const email = cookies.email;
 
   // console.log(req.headers);
   // return console.log(email);

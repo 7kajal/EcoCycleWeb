@@ -1,15 +1,15 @@
-import { fetchUserProfile } from "../main";
+import { fetchUserProfile } from "../main.js";
 import { handleLogout } from "./logout.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const role = document.cookie.includes("admin");
+  const role = document.cookie.includes("role=admin");
 
   if (role) window.location.href = "/src/admin/dashboard.html";
   const navbar = document.createElement("nav");
   navbar.id = "navbar";
   navbar.classList.add("w-full", "bg-green-900", "sm:px-6", "sm:py-4", "shadow-md", "sticky", "z-10", "top-0");
 
-  if (document.cookie.includes("company") || document.cookie.includes("admin")) {
+  if (document.cookie.includes("role=company") || document.cookie.includes("role=admin")) {
     navbar.innerHTML = `
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       

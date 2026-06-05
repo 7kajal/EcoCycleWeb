@@ -14,7 +14,7 @@ document.getElementById("profile-email").textContent = data.email;
 const container = document.getElementById("profile-details");
 
 // User-specific points display
-if (document.cookie.includes("user")) {
+if (document.cookie.includes("role=user")) {
   const points = document.createElement("div");
   points.classList.add("text-sm", "font-semibold", "text-green-700", "p-2", "bg-green-100", "rounded-lg", "w-fit");
   points.textContent = `⭐ Points: ${data.points}`;
@@ -23,7 +23,7 @@ if (document.cookie.includes("user")) {
 }
 
 // Company-specific stats display
-if (document.cookie.includes("company")) {
+if (document.cookie.includes("role=company")) {
   const statsContainer = document.createElement("div");
   statsContainer.classList.add("mt-4", "grid", "grid-cols-3", "gap-4", "p-4", "bg-gray-100", "rounded-lg");
 

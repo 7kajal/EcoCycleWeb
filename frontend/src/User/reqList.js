@@ -1,16 +1,14 @@
 import { toast } from "../utils/toast.js";
 
-const role =
-  document.cookie
-    .split(";")
-    .find((c) => c.includes("role="))
-    ?.split("=")[1] || "";
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return "";
+}
 
-const email =
-  document.cookie
-    .split(";")
-    .find((c) => c.includes("role="))
-    ?.split("=")[1] || "";
+const role = getCookie("role");
+const email = getCookie("email");
 
 if (!email || email === "''") window.location.href = "/";
 

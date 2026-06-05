@@ -8,19 +8,37 @@ document.addEventListener("DOMContentLoaded", function () {
     validateDate();
   });
 
-  itemForm.addEventListener("submit", function (event) {
+  itemForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
     if (!validateDate()) {
-      event.preventDefault(); // Prevent form submission if validation fails
+      return;
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const itemId = decodeURIComponent(urlParams.get("id"));
+
+    const date = dateInput.value;
+    const time = document.getElementById("time").value;
+
+    if (!time) {
+      return await toast("Select time.", "error");
+    }
+
+    await pickupSchedule(date, time, itemId);
   });
 
-  async function validateDate() {
+  function validateDate() {
+    if (!dateInput.value) {
+      toast("Please select a date.", "error");
+      return false;
+    }
     const selectedDate = new Date(dateInput.value);
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate comparison
 
     if (selectedDate < today) {
-      await toast("Please select a date greater than today.", "error");
+      toast("Please select a date greater than today.", "error");
       dateInput.value = ""; // Clear the invalid date
       return false;
     }
@@ -52,18 +70,5 @@ async function pickupSchedule(date, time, itemId) {
     confirmBtn.disabled = false;
     await toast("something went wrong", "error");
     confirmBtn.textContent = "Try again";
-    // window.location.reload(); // refresh page
   }
 }
-
-document.addEventListener("submit", async function (e) {
-  e.preventDefault();
-  const urlParams = new URLSearchParams(window.location.search);
-  const itemId = decodeURIComponent(urlParams.get("id"));
-
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
-
-  if (!time) return await toast("Select time.");
-  await pickupSchedule(date, time, itemId);
-});

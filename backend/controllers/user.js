@@ -1,6 +1,7 @@
 import { database } from "../server.js";
 import { sendEmail } from "../utils/email.js";
 import { generateId } from "../utils/randomId.js";
+import { parseCookies } from "../utils/cookie.js";
 
 // const users = [
 //     { email: "user1@gmail.com", password: "1234" },
@@ -248,15 +249,12 @@ export function logout(req, res) {
 }
 
 export async function getUserDetails(req, res) {
-  const email = req.headers.cookie
-    .split(";")
-    .find((e) => e.includes("email="))
-    .split("=")[1];
-  // console.log(email);
+  const cookies = parseCookies(req);
+  const email = cookies.email;
 
   if (!email) {
     res.statusCode = 401; // unauthorized
-    return res.end({ error: "You are not authorized" });
+    return res.end(JSON.stringify({ error: "You are not authorized" }));
   }
 
   try {
@@ -296,7 +294,7 @@ export async function forgotPassword(req, res) {
     }
 
     console.log(user);
-    const resetLink = `http://localhost:5173/src/User/reset-password?resetToken=${encodeURIComponent(
+    const resetLink = `http://localhost:5173/src/User/reset-password.html?resetToken=${encodeURIComponent(
       resetToken
     )}&email=${parsedData.email}`;
     const context = `<!DOCTYPE html>

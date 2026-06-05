@@ -61,8 +61,8 @@ document.addEventListener("submit", async function (e) {
   const test = await getDetails(name, email, password, role);
   // console.log(test)
   // await toast(test.message);
-  name.value = "";
-  email.value = "";
-  password.value = "";
-  role = "";
+  document.getElementById("username").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("password").value = "";
+  document.getElementById("role").value = "user";
 });

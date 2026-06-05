@@ -80,8 +80,7 @@ export const routes = (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
     chat(req, res);
   } else if (req.url === "/test") {
-    res.write("Hello there")
-    res.
-    res.end(JSON.stringify({message:"This is a mmessage"}))
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "This is a message" }));
   }
 };

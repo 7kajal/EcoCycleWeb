@@ -2,7 +2,7 @@ import { calculatePrice } from "../utils/calculateprice";
 import { toast } from "../utils/toast.js";
 
 // console.log(document.cookie.includes("company"));
-if (document.cookie.includes("company")) {
+if (document.cookie.includes("role=company")) {
   window.location.href = "/";
 }
 
@@ -20,19 +20,19 @@ quantity.addEventListener("change", function () {
 document.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  if (!document.cookie.includes("user")) {
+  if (!document.cookie.includes("role=user")) {
     return await toast("Login first to submit an item", "error");
   }
 
   const location = document.getElementById("location");
 
-  if (!category) {
+  if (!category.value) {
     await toast("Please select a category.", "error");
     return;
-  } else if (quantity < 5) {
-    await toast("Quanity should be minimum 5Kg.", "error");
+  } else if (Number(quantity.value) < 5) {
+    await toast("Quantity should be minimum 5Kg.", "error");
     return;
-  } else if (location.length < 15) {
+  } else if (location.value.length < 15) {
     await toast("Please enter full address", "error");
     return;
   }
